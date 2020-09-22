@@ -2,3 +2,16 @@
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+}
+
+.giphySvg {
+  width: 3rem;
+}
+
+.giphyLogo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
