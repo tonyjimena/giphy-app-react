@@ -1,0 +1,7 @@
+.CardComponent {
+    max-width: 20rem;
+}
+
+.CardComponent-Image {
+    max-width: 80%;
+}

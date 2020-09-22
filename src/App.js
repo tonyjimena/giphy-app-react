@@ -1,14 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./App.css";
 import Header from "./components/Header";
 import MainGifsContainer from "./components/MainGifsContainer";
-import getGifs from "./services/getGifs";
 
 function App() {
-  const [gifs, setGifs] = useState([]);
-  useEffect(() => {
-    getGifs().then((res) => setGifs(res));
-  }, []);
 
   return (
     <div className="App">
@@ -16,7 +11,7 @@ function App() {
       <div>
         <h2>Gifs</h2>
       </div>
-      <MainGifsContainer gifs={gifs} />
+      <MainGifsContainer />
     </div>
   );
 }
