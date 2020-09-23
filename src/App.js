@@ -10,6 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <div className='giphyLogo'>
+        <div></div>
         <img className='giphySvg' src={GiphyLogo} alt="Giphy Logo" />
         <h2>Giphy-App</h2>
       </div>
