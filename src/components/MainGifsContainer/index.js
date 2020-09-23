@@ -5,7 +5,7 @@ import SearchComponent from "../SearchComponent";
 import getGifs from "../../services/getGifs";
 import searchGifs from "../../services/searchGifs";
 
-import "./styles.css";
+import "./styles.scss";
 
 export default function MainGifsContainer() {
   const [gifs, setGifs] = useState([]);

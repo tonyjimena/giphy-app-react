@@ -1,6 +1,6 @@
 import React from "react";
 import logo from '../../assets/img/logo-skinner-fondo.png';
-import "./styles.css";
+import "./styles.scss";
 
 export default function Header() {
   return (
