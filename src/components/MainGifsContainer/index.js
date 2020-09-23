@@ -15,11 +15,15 @@ export default function MainGifsContainer() {
 
   function handleSubmit(e) {
     setShow(false);
+    document.body.classList.toggle("loaded");
     e.preventDefault();
     e.target.reset();
     searchGifs(keyword)
       .then((res) => setGifs(res))
-      .then(() => setShow(true));
+      .then(() => {
+        setShow(true);
+        document.body.classList.toggle("loaded");
+      });
   }
 
   function handleChange(e) {
@@ -29,7 +33,10 @@ export default function MainGifsContainer() {
   useEffect(() => {
     getGifs()
       .then((res) => setGifs(res))
-      .then(() => setShow(true));
+      .then(() => {
+        setShow(true);
+        document.body.classList.toggle("loaded");
+      });
   }, []);
 
   return (
@@ -52,7 +59,7 @@ export default function MainGifsContainer() {
             );
           })
         ) : (
-          <LoaderComponent/>
+          <LoaderComponent />
         )}
       </section>
     </>
