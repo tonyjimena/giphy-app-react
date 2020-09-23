@@ -10,35 +10,49 @@ import "./styles.scss";
 export default function MainGifsContainer() {
   const [gifs, setGifs] = useState([]);
   const [keyword, setKeyword] = useState("");
-  
+  const [show, setShow] = useState(false);
+
   function handleSubmit(e) {
+    setShow(false);
     e.preventDefault();
-    searchGifs(keyword).then(res => setGifs(res))
+    e.target.reset();
+    searchGifs(keyword)
+      .then((res) => setGifs(res))
+      .then(() => setShow(true));
   }
-  
+
   function handleChange(e) {
     setKeyword(e.target.value);
   }
 
   useEffect(() => {
-    getGifs().then((res) => setGifs(res));
+    getGifs()
+      .then((res) => setGifs(res))
+      .then(() => setShow(true));
   }, []);
 
   return (
     <>
-      <SearchComponent onHandleSubmit={handleSubmit} onHandleChange={handleChange}/>
+      <SearchComponent
+        onHandleSubmit={handleSubmit}
+        onHandleChange={handleChange}
+      />
       <br />
       <section className="CardsContainer">
-        {gifs.map((gif) => {
-          return (
-            <GifCardComponent
-              key={gif.id}
-              id={gif.id}
-              title={gif.title}
-              imageUrl={gif.url}
-            />
-          );
-        })}
+        {show ? (
+          gifs.map((gif) => {
+            return (
+              <GifCardComponent
+                key={gif.id}
+                id={gif.id}
+                title={gif.title}
+                imageUrl={gif.url}
+              />
+            );
+          })
+        ) : (
+          <h3>Loading...</h3>
+        )}
       </section>
     </>
   );

@@ -16,6 +16,12 @@ export default function Navigation() {
           <li>
             <a href="liked">Most liked</a>
           </li>
+          <li>
+            <a href="liked">Recently</a>
+          </li>
+          <li>
+            <a href="liked">Most viewed</a>
+          </li>
         </ul>
       </nav>
     </div>

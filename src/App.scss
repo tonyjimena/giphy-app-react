@@ -10,17 +10,19 @@
   color: white;
   min-height: 500vh;
 
-  li > a {
-    text-decoration: none;
-    color: white;
-    font-size: larger;
-    border-radius: 2px;
-    padding: 0.5rem 1rem 0.5rem 1rem;
-    background: rgb(34, 193, 195);
-    background: linear-gradient(
-      133deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(255, 196, 73, 1) 100%
-    );
+  li {
+    a {
+      text-decoration: none;
+      color: white;
+      font-size: larger;
+      border-radius: 2px;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      background: rgb(34, 193, 195);
+      border: 2px solid white;
+      transition: background-color 0.5s ease;
+      &:hover {
+        background-color: #088c8e;
+      }
+    }
   }
 }
