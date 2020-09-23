@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GifCardComponent from "../GifCardComponent";
 import SearchComponent from "../SearchComponent";
+import LoaderComponent from "../LoaderComponent";
 
 import getGifs from "../../services/getGifs";
 import searchGifs from "../../services/searchGifs";
@@ -51,7 +52,7 @@ export default function MainGifsContainer() {
             );
           })
         ) : (
-          <h3>Loading...</h3>
+          <LoaderComponent/>
         )}
       </section>
     </>
