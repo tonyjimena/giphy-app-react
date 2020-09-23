@@ -1,3 +1,7 @@
+@import './keyframes.scss';
+@import './vars.scss';
+@import './mediaQueries.scss';
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -5,7 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   overflow-y: hidden;
 
   &.loaded {
@@ -15,4 +18,12 @@ body {
 
 * {
   box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  background: rgb(0, 0, 0);
+  background: var(--background-app-color);
+  color: white;
+  min-height: 500vh;
 }

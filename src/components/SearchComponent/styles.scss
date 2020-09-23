@@ -7,23 +7,23 @@ input[type="submit"] {
 
 input[type="search"] {
   width: 25rem;
-  outline: 8px solid #84c28d;
+  outline: 8px solid var(--search-outline);
   &:focus,
   &:active {
-    outline: 7px solid #088c8e;
+    outline: 7px solid var(--search-outline-focus);
   }
 }
 
 input[type="submit"] {
   color: white;
   width: 5rem;
-  background-color: #22c1c3;
+  background-color: var(--submit-color);
   border-radius: 0px 3px 3px 0px;
   &:focus,
   &:active {
     outline: 2px solid white;
   }
   &:hover {
-    background-color: #088c8e;
+    background-color: var(--submit-color-hover);
   }
 }

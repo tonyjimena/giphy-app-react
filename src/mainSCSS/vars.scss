@@ -1,0 +1,25 @@
+:root {
+  --background-app-color: linear-gradient(
+    133deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 42, 48, 1) 50%,
+    rgba(32, 0, 30, 1) 100%
+  );
+
+  --background-card: linear-gradient(
+    133deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(255, 196, 73, 1) 100%
+  );
+  --background-card-hover: linear-gradient(
+    307deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(255, 196, 73, 1) 100%
+  );
+  --background-nav-li: rgb(34, 193, 195);
+  --background-nav-li-hover: #088c8e;
+  --search-outline: #84c28d;
+  --search-outline-focus: #088c8e;
+  --submit-color: #22c1c3;
+  --submit-color-hover: #088c8e;
+}

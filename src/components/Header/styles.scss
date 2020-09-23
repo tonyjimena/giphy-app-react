@@ -13,7 +13,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  font-size: calc(10px + 2vmin);
   color: white;
 
   .title {
@@ -35,32 +34,18 @@
     }
   }
   .Github-link {
+    font-size: 1.3rem;
     width: 7rem;
     background-color: #fff;
     color: #ff5757;
     padding: 0.5rem 1rem;
     text-decoration: none;
     transition: 0.3s ease;
-    transition-property: transform, border;
-
+    transition-property: transform;
+    
     &:hover {
-      border: 1px solid black;
+      border: 2px solid black;
       transform: translate(0px, -3px);
     }
-  }
-}
-
-@keyframes slide-fade-left {
-  0% {
-    opacity: 0;
-    margin-left: -100px;
-  }
-  50% {
-    opacity: 0;
-    margin-left: -100px;
-  }
-  100% {
-    opacity: 1;
-    margin-left: 0;
   }
 }

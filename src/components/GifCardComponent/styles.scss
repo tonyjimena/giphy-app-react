@@ -1,13 +1,10 @@
 .CardComponent {
   display: flex;
+  flex-direction: column;
   max-width: 20rem;
   width: 20rem;
   background: rgb(34, 193, 195);
-  background: linear-gradient(
-    133deg,
-    rgba(34, 193, 195, 1) 0%,
-    rgba(255, 196, 73, 1) 100%
-  );
+  background: var(--background-card);
   padding: 0.5rem;
   height: 20rem;
   margin: 1rem;
@@ -15,15 +12,27 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  // transition: all 0.5s ease;
+  animation: fadeIn 0.5s ease;
   &:hover {
     background: rgb(34, 193, 195);
-    background: linear-gradient(
-      307deg,
-      rgba(34, 193, 195, 1) 0%,
-      rgba(255, 196, 73, 1) 100%
-    );
+    background: var(--background-card-hover);
+    h3 {
+      opacity: 1;
+    }
   }
+
+  h3 {
+    opacity: 0;
+    z-index: 1;
+    position: absolute;
+    width: 19rem;
+    height: 5rem;
+    margin-top: 31%;
+    background: #000000bf;
+    transition: opacity 0.5s ease;
+
+  }
+
   .CardComponent-Image {
     transform: scale(1);
     transition: transform 0.5s ease;
