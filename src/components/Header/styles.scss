@@ -1,10 +1,14 @@
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("../../assets/fonts/BarlowCondensed-ExtraBoldItalic.ttf");
+}
 .App-logo {
   height: 5rem;
   pointer-events: none;
 }
 
 .App-header {
-  background-color: #c0c0c0;
+  background-color: #313131;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,6 +16,24 @@
   font-size: calc(10px + 2vmin);
   color: white;
 
+  .title {
+    h1 {
+      font-size: 2rem;
+      color: white;
+      font-family: "Barlow Condensed", sans-serif;
+      text-align: center;
+      text-shadow: 1px 1px 0px #ff5757a6;
+      margin-block-end: 0;
+      margin-block-start: 0;
+      animation: slide-fade-left 1s ease;
+    }
+
+    h1 > span {
+      color: #ff5757;
+      position: relative;
+      top: -10px;
+    }
+  }
   .Github-link {
     width: 7rem;
     background-color: #fff;
@@ -25,5 +47,20 @@
       border: 1px solid black;
       transform: translate(0px, -3px);
     }
+  }
+}
+
+@keyframes slide-fade-left {
+  0% {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  50% {
+    opacity: 0;
+    margin-left: -100px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0;
   }
 }
