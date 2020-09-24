@@ -1,3 +1,7 @@
+form {
+  margin: 0px 2rem 0px 2rem;
+}
+
 input[type="search"],
 input[type="submit"] {
   height: 2rem;
@@ -6,7 +10,7 @@ input[type="submit"] {
 }
 
 input[type="search"] {
-  width: 25rem;
+  width: 19rem;
   outline: 8px solid var(--search-outline);
   &:focus,
   &:active {
