@@ -14,7 +14,7 @@ export default function GifCardComponent({ id, title, imageUrl }) {
   return (
     <div key={id} className="CardComponent">
       <div className="like" onClick={()=> setLike(!like)}>
-        <img src={Like} width="30px" className={clase}/>
+        <img src={Like} alt="likes" width="30px" className={clase}/>
       </div>
       <h3>{title}</h3>
       <img src={imageUrl} alt={title} className="CardComponent-Image" />
