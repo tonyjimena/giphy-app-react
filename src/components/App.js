@@ -1,4 +1,5 @@
 import React from "react";
+import { Route } from "wouter";
 import Header from "./Header";
 import MainGifsContainer from "./MainGifsContainer";
 import Navigation from "./Navigation";
@@ -10,7 +11,14 @@ function App() {
       <Header />
       <GiphyLogoNav />
       <Navigation />
-      <MainGifsContainer />
+      <Route path="/about">About</Route>
+      <Route path="/users/:name">
+        {(params) => <div>Hello, {params.name}!</div>}
+      </Route>
+      <Route path="/" component={MainGifsContainer} />
+      <Route path="/stickers">
+        <MainGifsContainer type="stickers"/>
+      </Route>
     </div>
   );
 }

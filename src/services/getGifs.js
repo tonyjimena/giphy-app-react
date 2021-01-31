@@ -1,7 +1,9 @@
 const apiKey = "KkIa0vg60W6oVzTcJ86bbj9sJn2MfuNx";
-const apiURL = `https://api.giphy.com/v1/gifs/trending?api_key=${apiKey}`;
 
-export default function getGifs() {
+const getGifs = (category = "trending", type = "gifs")  => {
+  //const category = keyword ?? "trending";
+  const apiURL = `https://api.giphy.com/v1/${type}/${category}?api_key=${apiKey}`;
+
   return fetch(apiURL)
     .then((response) => response.json())
     .then((res) => {
@@ -14,4 +16,6 @@ export default function getGifs() {
 
       return gifs;
     });
-}
+};
+
+export default getGifs;

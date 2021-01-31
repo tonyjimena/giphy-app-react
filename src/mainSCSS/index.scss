@@ -1,6 +1,6 @@
-@import './keyframes.scss';
-@import './vars.scss';
-@import './mediaQueries.scss';
+@import "./keyframes.scss";
+@import "./vars.scss";
+@import "./mediaQueries.scss";
 
 body {
   margin: 0;
@@ -9,7 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-y: hidden;
+  overflow-y: auto;
 
   &.loaded {
     overflow-y: auto;
@@ -24,6 +24,7 @@ body {
   text-align: center;
   background: rgb(0, 0, 0);
   background: var(--background-app-color);
+  background-size: 500vh;
   color: white;
-  min-height: 500vh;
+  min-height: 100vh;
 }

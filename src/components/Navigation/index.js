@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "wouter";
+
 import "./styles.scss";
 
 export default function Navigation() {
@@ -7,10 +9,18 @@ export default function Navigation() {
       <nav>
         <ul className="Nav-List">
           <li>
-            <a href="/">Home</a>
+            <Link href="/">
+              <a href="/" className="link">
+                Home
+              </a>
+            </Link>
           </li>
           <li>
-            <a href="trendy">Trendys</a>
+            <Link href="/stickers">
+              <a href="/stickers" className="link">
+                Stickers
+              </a>
+            </Link>
           </li>
 
           <li>
@@ -21,6 +31,20 @@ export default function Navigation() {
           </li>
           <li>
             <a href="liked">Most viewed</a>
+          </li>
+          <li>
+            <Link href="/users/1">
+              <a href="/users/1" className="link">
+                Profile
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/about">
+              <a href="/about" className="link">
+                About
+              </a>
+            </Link>
           </li>
         </ul>
       </nav>

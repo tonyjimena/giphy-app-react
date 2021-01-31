@@ -8,21 +8,21 @@ import searchGifs from "../../services/searchGifs";
 
 import "./styles.scss";
 
-export default function MainGifsContainer() {
+export default function MainGifsContainer({type = "gifs"}) {
   const [gifs, setGifs] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [show, setShow] = useState(false);
 
   function handleSubmit(e) {
     setShow(false);
-    document.body.classList.toggle("loaded");
+    //document.body.classList.toggle("loaded");
     e.preventDefault();
     e.target.reset();
     searchGifs(keyword)
       .then((res) => setGifs(res))
       .then(() => {
         setShow(true);
-        document.body.classList.toggle("loaded");
+        //document.body.classList.toggle("loaded");
       });
   }
 
@@ -31,13 +31,13 @@ export default function MainGifsContainer() {
   }
 
   useEffect(() => {
-    getGifs()
+    getGifs(undefined, type)
       .then((res) => setGifs(res))
       .then(() => {
         setShow(true);
-        document.body.classList.toggle("loaded");
+        //document.body.classList.toggle("loaded");
       });
-  }, []);
+  }, [type]);
 
   return (
     <>
