@@ -1,0 +1,16 @@
+.CardsContainer {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+@media (max-width: 480px) {
+  .CardsContainer {
+    padding: 0;
+  }
+}

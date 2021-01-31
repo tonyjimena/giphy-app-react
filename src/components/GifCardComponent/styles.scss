@@ -31,6 +31,7 @@
       z-index: 1;
       top: -5px;
       right: -5px;
+      cursor: pointer;
       &.nolike {
         filter: grayscale(1);
         animation: NOlikeFrame 0.5s ease;

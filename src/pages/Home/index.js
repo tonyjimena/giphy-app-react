@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import MainGifsContainer from "../../components/MainGifsContainer";
 import SearchComponent from "../../components/SearchComponent";
 import LoaderComponent from "../../components/LoaderComponent";
@@ -6,8 +6,8 @@ import { useGifs } from "../../hooks/useGifs";
 
 import "./styles.scss";
 
-export default function StickersPage() {
-  const { loading, gifs, setLoading, setCategory, setKeyword } = useGifs({type: "stickers"});
+export default function HomePage() {
+  const { loading, gifs, setLoading, setCategory, setKeyword } = useGifs({});
   const [Word, setWord] = useState("");
   const [title, setTitle] = useState(false);
 

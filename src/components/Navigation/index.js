@@ -9,9 +9,9 @@ export default function Navigation() {
       <nav>
         <ul className="Nav-List">
           <li>
-            <Link href="/">
-              <a href="/" className="link">
-                Home
+            <Link href="/Gifs">
+              <a href="/Gifs" className="link">
+                Gifs
               </a>
             </Link>
           </li>
