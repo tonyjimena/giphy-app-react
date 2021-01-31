@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
-import SearchComponent from "../SearchComponent";
-import LoaderComponent from "../LoaderComponent";
-
+import MainGifsContainer from "../../components/MainGifsContainer";
+import AdvancedSearchComponent from "../../components/AdvancedSearchComponent";
+import LoaderComponent from "../../components/LoaderComponent";
 import getGifs from "../../services/getGifs";
 import searchGifs from "../../services/searchGifs";
-
 import "./styles.scss";
-import ListOfGifsComponent from "../ListOfGifsComponent";
 
-export default function MainGifsContainer({ type = "gifs", gifs_def = [] }) {
+export default function SearchPage({type = "gifs"}) {
   const [gifs, setGifs] = useState([]);
   const [keyword, setKeyword] = useState("");
   const [show, setShow] = useState(false);
@@ -41,9 +39,7 @@ export default function MainGifsContainer({ type = "gifs", gifs_def = [] }) {
 
   return (
     <>
-      {/* <ListOfGifsComponent gifs={gifs} /> */}
-
-      <SearchComponent
+      <AdvancedSearchComponent
         onHandleSubmit={handleSubmit}
         onHandleChange={handleChange}
       />
@@ -51,7 +47,11 @@ export default function MainGifsContainer({ type = "gifs", gifs_def = [] }) {
       {title ? <p>Búsqueda para {keyword}</p> : ""}
       <br />
       <section className="CardsContainer">
-        {show ? <ListOfGifsComponent gifs={gifs} /> : <LoaderComponent />}
+        {show ? (
+          <MainGifsContainer type={type} gifs={gifs} />
+        ) : (
+          <LoaderComponent />
+        )}
       </section>
     </>
   );

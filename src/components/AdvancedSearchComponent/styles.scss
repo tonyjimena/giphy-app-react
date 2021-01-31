@@ -1,0 +1,33 @@
+form {
+  margin: 0px 2rem 0px 2rem;
+}
+
+input[type="search"],
+input[type="submit"] {
+  height: 2rem;
+  font-size: larger;
+  border: 0;
+}
+
+input[type="search"] {
+  width: 19rem;
+  outline: 8px solid var(--search-outline);
+  &:focus,
+  &:active {
+    outline: 7px solid var(--search-outline-focus);
+  }
+}
+
+input[type="submit"] {
+  color: white;
+  width: 5rem;
+  background-color: var(--submit-color);
+  border-radius: 0px 3px 3px 0px;
+  &:focus,
+  &:active {
+    outline: 2px solid white;
+  }
+  &:hover {
+    background-color: var(--submit-color-hover);
+  }
+}

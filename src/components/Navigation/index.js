@@ -22,15 +22,12 @@ export default function Navigation() {
               </a>
             </Link>
           </li>
-
           <li>
-            <a href="liked">Most liked</a>
-          </li>
-          <li>
-            <a href="liked">Recently</a>
-          </li>
-          <li>
-            <a href="liked">Most viewed</a>
+            <Link href="/search">
+              <a href="/search" className="link">
+                Search
+              </a>
+            </Link>
           </li>
           <li>
             <Link href="/users/1">

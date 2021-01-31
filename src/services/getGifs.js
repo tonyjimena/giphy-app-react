@@ -1,6 +1,6 @@
 const apiKey = "KkIa0vg60W6oVzTcJ86bbj9sJn2MfuNx";
 
-const getGifs = (category = "trending", type = "gifs")  => {
+const getGifs = ( type = "gifs", category = "trending" )  => {
   //const category = keyword ?? "trending";
   const apiURL = `https://api.giphy.com/v1/${type}/${category}?api_key=${apiKey}`;
 

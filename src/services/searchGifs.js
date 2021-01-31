@@ -1,7 +1,7 @@
 const apiKey = "KkIa0vg60W6oVzTcJ86bbj9sJn2MfuNx";
 
-export default function searchGifs(keyword) {
-  return fetch( `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${keyword}`)
+export default function searchGifs(keyword, type = "gifs") {
+  return fetch( `https://api.giphy.com/v1/${type}/search?api_key=${apiKey}&q=${keyword}`)
     .then((response) => response.json())
     .then((res) => {
       const { data = [] } = res;
