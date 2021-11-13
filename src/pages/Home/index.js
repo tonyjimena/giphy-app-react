@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import MainGifsContainer from "../../components/MainGifsContainer";
 import SearchComponent from "../../components/SearchComponent";
 import LoaderComponent from "../../components/LoaderComponent";
@@ -34,6 +34,11 @@ export default function HomePage() {
   function handleChange(e) {
     setWord(e.target.value);
   }
+
+  useEffect(() => {
+    if (isVisible) more()
+  }, [isVisible])
+
   return (
     <>
       <SearchComponent
@@ -42,8 +47,16 @@ export default function HomePage() {
       />
       <br />
       {title ? <p>Búsqueda para {Word}</p> : ""}
-      {loading ? <LoaderComponent /> : <MainGifsContainer gifs={gifs} />}
-      <button >More</button>
+      {loading ? (
+        <LoaderComponent /> 
+      ) : (
+        <>
+        <MainGifsContainer gifs={gifs} />
+        <div ref={containerRef}>
+          <LoaderComponent />
+        </div>
+        </>
+      )}
     </>
   );
 }
