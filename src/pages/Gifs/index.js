@@ -34,7 +34,7 @@ export default function GifsPage() {
 
   useEffect(() => {
     if (isVisible) more()
-  }, [isVisible])
+  }, [isVisible, more])
 
   return (
     <>

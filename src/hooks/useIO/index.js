@@ -14,6 +14,7 @@ export const useIO = (options) => {
     if (containerRef.current) observer.observe(containerRef.current);
 
     return () => {
+      // eslint-disable-next-line
       if (containerRef.current) observer.unobserve(containerRef.current);
     };
   }, [containerRef, options]);

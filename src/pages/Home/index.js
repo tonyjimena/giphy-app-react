@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import MainGifsContainer from "../../components/MainGifsContainer";
 import SearchComponent from "../../components/SearchComponent";
 import LoaderComponent from "../../components/LoaderComponent";
@@ -37,7 +37,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (isVisible) more()
-  }, [isVisible])
+  }, [isVisible, more])
 
   return (
     <>

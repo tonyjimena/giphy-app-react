@@ -36,7 +36,7 @@ export default function StickersPage() {
 
   useEffect(() => {
     if (isVisible) more()
-  }, [isVisible])
+  }, [isVisible, more])
 
   return (
     <section class="page page-stickers">
