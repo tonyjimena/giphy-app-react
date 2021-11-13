@@ -1,7 +1,12 @@
 const apiKey = "KkIa0vg60W6oVzTcJ86bbj9sJn2MfuNx";
 
-const getGifs = ( type = "gifs", category = "trending", keyword = "panda" )  => {
-  const apiURL = `https://api.giphy.com/v1/${type}/${category}?api_key=${apiKey}&q=${keyword}`;
+const getGifs = (
+  type = "gifs",
+  category = "trending",
+  keyword = "panda",
+  offset = "0"
+) => {
+  const apiURL = `https://api.giphy.com/v1/${type}/${category}?api_key=${apiKey}&q=${keyword}&offset=${offset}&limit=6`;
 
   return fetch(apiURL)
     .then((response) => response.json())

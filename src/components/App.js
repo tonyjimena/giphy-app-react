@@ -10,7 +10,8 @@ function App() {
       <Header />
       <GiphyLogoNav />
       <Navigation />
-      <Router/>
+      <Router />
+      <footer></footer>
     </div>
   );
 }
