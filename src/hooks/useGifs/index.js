@@ -2,27 +2,29 @@ import { useEffect, useState } from "react";
 import getGifs from "../../services/getGifs";
 
 export function useGifs({ type = "gifs" }) {
+
   const [gifs, setGifs] = useState([]);
   const [loading, setLoading] = useState([]);
-  const [category, setCategory] = useState("trending");
-
-  // estado para contar el número de bloques que pido, lo necesito para que picsum no me devuelva siempre las mismas imágenes
+  const [category, setCategory] = useState("search");
   const [offset, setOffset] = useState(0);
+  const [keyword, setKeyword] = useState();
 
-  // función para pedir más imágenes
+  const keywordToUse = keyword || localStorage.getItem('lastKeyword')
+
+
   const more = async () => {
-    const more_gifs = await getGifs(type, category, keyword, offset + 6);
+    const more_gifs = await getGifs(type, category, keywordToUse, offset + 6);
     setOffset((prev) => prev + 6);
     setGifs((prev) => [...prev, ...more_gifs]);
   };
 
-  const [keyword, setKeyword] = useState("");
   useEffect(() => {
     setLoading(true);
-    getGifs(type, category, keyword, 0)
+    getGifs(type, category, keywordToUse, 0)
       .then((res) => setGifs(res))
       .then(() => {
         setLoading(false);
+        localStorage.setItem('lastKeyword', keywordToUse)
       });
   }, [type, category, keyword]);
 

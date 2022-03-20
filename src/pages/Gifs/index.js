@@ -11,12 +11,8 @@ export default function GifsPage() {
   const { loading, gifs, setLoading, setCategory, setKeyword, more } = useGifs({});
   const [Word, setWord] = useState("");
   const [title, setTitle] = useState(false);
+  const [containerRef, isVisible] = useIO({})
 
-  const [ containerRef, isVisible ] = useIO({
-    root: null,
-    rootMargin: "0px",
-    threshold:1.0
-  })
 
   function handleSubmit(e) {
     setLoading(true);
@@ -31,10 +27,10 @@ export default function GifsPage() {
   function handleChange(e) {
     setWord(e.target.value);
   }
-
+  
   useEffect(() => {
     if (isVisible) more()
-  }, [isVisible, more])
+  }, [isVisible])
 
   return (
     <>
@@ -45,14 +41,27 @@ export default function GifsPage() {
       <br />
       {title ? <p>Búsqueda para {Word}</p> : ""}
       {loading ? (
-        <LoaderComponent /> 
+        <LoaderComponent />
       ) : (
         <>
-        <MainGifsContainer gifs={gifs} />
-        <div ref={containerRef}>
-          <LoaderComponent />
-        </div>
+          {gifs.length > 0 ? (
+            <>
+              <MainGifsContainer gifs={gifs} />
+              <div ref={containerRef}>
+                <LoaderComponent />
+              </div>
+            </>
+
+          ) : (
+            <>
+              <div>
+                <h3>No hay resultados</h3>
+              </div>
+            </>
+          )
+          }
         </>
+
       )}
     </>
   );

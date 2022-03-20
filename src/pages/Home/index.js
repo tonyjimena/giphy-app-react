@@ -13,13 +13,10 @@ export default function HomePage() {
     {}
   );
 
-  const [ containerRef, isVisible ] = useIO({
-    root: null,
-    rootMargin: "0px",
-    threshold:1.0
-  })
   const [Word, setWord] = useState("");
   const [title, setTitle] = useState(false);
+
+  const [containerRef, isVisible] = useIO({})
 
   function handleSubmit(e) {
     setLoading(true);
@@ -37,7 +34,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (isVisible) more()
-  }, [isVisible, more])
+  }, [isVisible])
 
   return (
     <>
@@ -48,14 +45,27 @@ export default function HomePage() {
       <br />
       {title ? <p>Búsqueda para {Word}</p> : ""}
       {loading ? (
-        <LoaderComponent /> 
+        <LoaderComponent />
       ) : (
         <>
-        <MainGifsContainer gifs={gifs} />
-        <div ref={containerRef}>
-          <LoaderComponent />
-        </div>
+          {gifs.length > 0 ? (
+            <>
+              <MainGifsContainer gifs={gifs} />
+              <div ref={containerRef}>
+                <LoaderComponent />
+              </div>
+            </>
+
+          ) : (
+            <>
+              <div>
+                <h3>No hay resultados</h3>
+              </div>
+            </>
+          )
+          }
         </>
+
       )}
     </>
   );

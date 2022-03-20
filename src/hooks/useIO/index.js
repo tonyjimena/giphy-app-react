@@ -1,7 +1,13 @@
 import { useRef, useEffect, useState } from "react";
 
-export const useIO = (options) => {
+export const useIO = (options = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 1.0
+}) => {
+
   const containerRef = useRef(null);
+
   const [isVisible, setIsVisible] = useState(false);
 
   const callbackFunction = (entries) => {
@@ -11,11 +17,13 @@ export const useIO = (options) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(callbackFunction, options);
-    if (containerRef.current) observer.observe(containerRef.current);
+
+    let containerRefCopy = containerRef.current;
+
+    if (containerRefCopy) observer.observe(containerRefCopy);
 
     return () => {
-      // eslint-disable-next-line
-      if (containerRef.current) observer.unobserve(containerRef.current);
+      if (containerRefCopy) observer.unobserve(containerRefCopy);
     };
   }, [containerRef, options]);
 

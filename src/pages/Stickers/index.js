@@ -14,11 +14,7 @@ export default function StickersPage() {
   const [Word, setWord] = useState("");
   const [title, setTitle] = useState(false);
 
-  const [ containerRef, isVisible ] = useIO({
-    root: null,
-    rootMargin: "0px",
-    threshold:1.0
-  })
+  const [containerRef, isVisible] = useIO({})
 
   function handleSubmit(e) {
     setLoading(true);
@@ -36,26 +32,42 @@ export default function StickersPage() {
 
   useEffect(() => {
     if (isVisible) more()
-  }, [isVisible, more])
+  }, [isVisible])
 
   return (
-    <section class="page page-stickers">
+    <section className="page page-stickers">
       <SearchComponent
         onHandleSubmit={handleSubmit}
         onHandleChange={handleChange}
       />
       <br />
       {title ? <p>Búsqueda para {Word}</p> : ""}
+
       {loading ? (
-        <LoaderComponent /> 
+        <LoaderComponent />
       ) : (
         <>
-        <MainGifsContainer gifs={gifs} />
-        <div ref={containerRef}>
-          <LoaderComponent />
-        </div>
+          {gifs.length > 0 ? (
+            <>
+              <MainGifsContainer gifs={gifs} />
+              <div ref={containerRef}>
+                <LoaderComponent />
+              </div>
+            </>
+
+          ) : (
+            <>
+              <div>
+                <h3>No hay resultados</h3>
+              </div>
+            </>
+          )
+          }
         </>
+
       )}
+
+
     </section>
   );
 }
