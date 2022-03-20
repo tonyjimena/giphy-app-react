@@ -30,6 +30,7 @@ export default function GifsPage() {
   
   useEffect(() => {
     if (isVisible) more()
+    // eslint-disable-next-line
   }, [isVisible])
 
   return (

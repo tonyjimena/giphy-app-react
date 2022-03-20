@@ -9,10 +9,8 @@ export function useGifs({ type = "gifs" }) {
   const [offset, setOffset] = useState(0);
   const [keyword, setKeyword] = useState();
 
-  const keywordToUse = keyword || localStorage.getItem('lastKeyword')
-
-
   const more = async () => {
+    const keywordToUse = keyword || localStorage.getItem('lastKeyword')
     const more_gifs = await getGifs(type, category, keywordToUse, offset + 6);
     setOffset((prev) => prev + 6);
     setGifs((prev) => [...prev, ...more_gifs]);
@@ -20,6 +18,7 @@ export function useGifs({ type = "gifs" }) {
 
   useEffect(() => {
     setLoading(true);
+    const keywordToUse = keyword || localStorage.getItem('lastKeyword')
     getGifs(type, category, keywordToUse, 0)
       .then((res) => setGifs(res))
       .then(() => {

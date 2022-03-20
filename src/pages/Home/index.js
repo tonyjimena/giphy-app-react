@@ -34,6 +34,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (isVisible) more()
+    // eslint-disable-next-line
   }, [isVisible])
 
   return (
