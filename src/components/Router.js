@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "wouter";
 import GifsPage from "../pages/Gifs";
 import StickersPage from "../pages/Stickers";
-import SearchPage from "../pages/Search";
+import GifDetail from "../pages/GifDetail";
 import HomePage from "../pages/Home";
 
 function Router() {
@@ -15,8 +15,8 @@ function Router() {
       <Route path="/" component={HomePage} />
       <Route path="/gifs" component={GifsPage} />
       <Route path="/stickers" component={StickersPage} />
-      <Route path="/search/:keyword?">
-          {params => <SearchPage keyword={params.keyword}/>}
+      <Route path="/gif/:id">
+          {params => <GifDetail id={params.id}/>}
       </Route>
     </>
   );

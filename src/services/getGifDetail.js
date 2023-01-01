@@ -1,6 +1,6 @@
 const apiKey = "KkIa0vg60W6oVzTcJ86bbj9sJn2MfuNx";
 
-const getGifs = (
+const getGifDEtail = (
   type = "gifs",
   category = "search",
   keyword = null,
@@ -21,4 +21,4 @@ const getGifs = (
     });
 };
 
-export default getGifs;
+export default getGifDEtail;
