@@ -13,7 +13,7 @@ export default function About() {
   const [leads, setLeads] = useState([])
 
   function handleSubmit(e) {
-    e.preventDefault
+    e.preventDefault()
     setLoading(true)
     const formData = new FormData(e.target);
     const formProps = Object.fromEntries(formData);
@@ -54,11 +54,13 @@ export default function About() {
       </form>
       <h3>Leads</h3>
       {leads.map(item => {
-        <div>
-          <p>{item.name}</p>
-          <p>{item.surname}</p>
-          <p>{item.email}</p>
-        </div>
+        return (
+          <div>
+            <p>{item.name}</p>
+            <p>{item.surname}</p>
+            <p>{item.email}</p>
+          </div>
+        )
       })}
     </>
 
