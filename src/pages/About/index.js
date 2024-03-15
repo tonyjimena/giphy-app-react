@@ -6,7 +6,7 @@ export default function About() {
   const formRef = useRef();
   const [success, setSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [refresh, setRefresh] = useState(true);
+  const [loadingData, setLoadingData] = useState(false);
 
   const [leads, setLeads] = useState([]);
 
@@ -19,19 +19,21 @@ export default function About() {
   }
 
   async function getData() {
+    setLoadingData(true);
     const res = await fetch(
-      "https://script.google.com/macros/s/AKfycbzaTFRHzqaK6B1ZXUb3K_wKxMQeJxCZbNrRkayjYrzByzzn0aONanGhMobr_adqIj1v4A/exec",
+      "https://script.google.com/macros/s/AKfycbyioAU4dEbsgWH5SWPEN8e3OuF5ttT9ChWbSJdM8_XKqePMPuXg-9--GIL1PRKL60s7MQ/exec",
       {
         redirect: "follow",
       }
     );
     const data = await res.json();
+    setLoadingData(false);
     setLeads(data.reverse());
   }
 
   async function postData(formData) {
     const res = await fetch(
-      "https://script.google.com/macros/s/AKfycbzaTFRHzqaK6B1ZXUb3K_wKxMQeJxCZbNrRkayjYrzByzzn0aONanGhMobr_adqIj1v4A/exec",
+      "https://script.google.com/macros/s/AKfycbyioAU4dEbsgWH5SWPEN8e3OuF5ttT9ChWbSJdM8_XKqePMPuXg-9--GIL1PRKL60s7MQ/exec",
       {
         method: "POST",
         redirect: "follow",
@@ -77,6 +79,7 @@ export default function About() {
         {success && <p>Enviado con éxito!</p>}
       </form>
       <h3>Leads</h3>
+      {loadingData && <p>Cargando...</p>}
       {leads.map((item) => {
         return (
           <div
